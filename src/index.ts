@@ -17,6 +17,7 @@ program
   .argument("<sring>", "src path")
   .action((str, options) => {
     console.log(str, options);
+    console.log("it worked!");
   });
 
 program.parse(); // what does this do?!

@@ -10,6 +10,6 @@ run `npm install && npm run build && npm install -g`.
 
 ### Development
 
-`npm run dev` to compile the source typeScript in watch mode, outputting to `build`.
+`npm run dev` to compile the source typeScript in watch mode, outputting to `build`, and re-installing the package globally to make the updated version available for testing.
 
 ### Tests

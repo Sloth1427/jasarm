@@ -7,13 +7,14 @@
     "combinejson": "./build/index.js"
   },
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "tsc-watch --onSuccess 'npm install -g'",
     "build": "tsc",
     "test": "test"
   },
   "author": "Jacob Reich",
   "license": "ISC",
   "devDependencies": {
+    "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
