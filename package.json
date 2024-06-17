@@ -1,0 +1,22 @@
+{
+  "name": "arm-cli",
+  "version": "1.0.0",
+  "description": "CLI to process JSON files",
+  "main": "build/index.js",
+  "bin": {
+    "combinejson": "./build/index.js"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "test": "test"
+  },
+  "author": "Jacob Reich",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}
