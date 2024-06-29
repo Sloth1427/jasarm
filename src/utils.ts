@@ -21,5 +21,5 @@ export function getJsonFiles(dir: string): string[] {
 
 export function isValidJsonFormat(input: unknown): input is BoardInfo {
   // flesh this out
-  return true;
+  return false;
 }
