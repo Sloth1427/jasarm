@@ -14,10 +14,12 @@
   "author": "Jacob Reich",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.14.8",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "glob": "^10.4.2"
   }
 }

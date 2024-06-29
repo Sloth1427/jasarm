@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
 import { Command } from "commander";
+import { combineJSON } from "./combineJSON";
 
 const program = new Command();
 
@@ -15,9 +16,8 @@ program
   .command("combine")
   .description("Here is a description")
   .argument("<sring>", "src path")
-  .action((str, options) => {
-    console.log(str, options);
-    console.log("it worked!");
+  .action((path, _options) => {
+    combineJSON(path);
   });
 
 program.parse(); // what does this do?!
