@@ -12,7 +12,11 @@ export interface Metadata {
   total_boards: number;
 }
 
-export interface BoardInfo {
-  boards: Board[];
+export interface BoardCollection {
+  boards: (unknown | Board)[];
   _metadata?: Metadata;
+}
+
+export interface BoardCollectionValidated extends BoardCollection {
+  boards: Board[];
 }

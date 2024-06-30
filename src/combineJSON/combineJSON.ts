@@ -1,17 +1,21 @@
-import { BoardInfo } from "../types";
+import { BoardCollection, Board, BoardCollectionValidated } from "../types";
 import * as fs from "fs";
 import { isDir, getJsonFiles } from "../utils";
 
-function hasStringProp(prop: string, obj: object): boolean {
-  return prop in obj && typeof obj[prop] === "string";
+// TODO refactor these to actually help with type narrowing.
+function hasStringProp(propName: string, obj: object): boolean {
+  return propName in obj && typeof obj[propName] === "string";
 }
 
-function hasBooleanProp(prop: string, obj: object): boolean {
-  return prop in obj && typeof obj[prop] === "boolean";
+function hasBooleanProp(propName: string, obj: object): boolean {
+  return propName in obj && typeof obj[propName] === "boolean";
 }
 
-export function isBoardInfo(input: unknown): input is BoardInfo {
-  debugger;
+function hasArrayProp(propName: string, obj: object): boolean {
+  return propName in obj && Array.isArray(obj[propName]);
+}
+
+export function isBoard(input: unknown): input is Board {
   if (typeof input !== "object") {
     return false;
   }
@@ -24,6 +28,20 @@ export function isBoardInfo(input: unknown): input is BoardInfo {
   );
 }
 
+export function isBoardCollection(input: unknown): input is BoardCollection {
+  if (typeof input !== "object") {
+    return false;
+  }
+  if (hasArrayProp("boards", input)) {
+    const boards = (input as any).boards as any[];
+
+    // only require it to contain one good board
+    return boards.some((element) => isBoard(element));
+  }
+
+  return false;
+}
+
 export function combineJSON(path: string): void {
   // check if path is directory
   isDir(path);
@@ -31,7 +49,7 @@ export function combineJSON(path: string): void {
   const jsonFilePaths = getJsonFiles(path);
   // for each json:
 
-  const combined: BoardInfo = {
+  const combined: BoardCollectionValidated = {
     boards: [],
     _metadata: { total_boards: 0, total_vendors: 0 },
   };
@@ -40,17 +58,23 @@ export function combineJSON(path: string): void {
   const vendors: string[] = [];
 
   for (const path of jsonFilePaths) {
-    let boardInfo: BoardInfo;
+    let boardCollection: BoardCollection;
     try {
       const obj = JSON.parse(fs.readFileSync(path, "utf-8"));
-      if (!isBoardInfo(obj)) {
-        console.warn(`${path} is not in the correct JSON format`);
+      if (!isBoardCollection(obj)) {
+        console.warn(
+          `${path} is not in the correct JSON format, or has no valid boards.`
+        );
         continue;
       }
-      boardInfo = obj;
+      boardCollection = obj;
 
-      // iterate through each board, and add to combined if not already in
-      boardInfo.boards.forEach((board) => {
+      // iterate through each board, validate, and add to combined if not already in
+      boardCollection.boards.forEach((board) => {
+        if (!isBoard(board)) {
+          console.warn(`Skipping bad board in ${path}`, board);
+          return;
+        }
         const { name, vendor } = board;
         if (!boardNames.includes(name)) {
           boardNames.push(name);

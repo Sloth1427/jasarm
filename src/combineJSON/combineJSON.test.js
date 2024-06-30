@@ -1,8 +1,8 @@
 // could probably use babel to use the src files, but using the build was faster to get going
 const { describe } = require("node:test");
-const { isBoardInfo } = require("../../build/combineJSON/combineJSON");
+const { isBoard } = require("../../build/combineJSON/combineJSON");
 
-describe("isBoardInfo", () => {
+describe("isBoard", () => {
   test("return true for valid boards", () => {
     [
       {
@@ -24,7 +24,7 @@ describe("isBoardInfo", () => {
         has_wifi: false,
       },
     ].forEach((board) => {
-      expect(isBoardInfo(board)).toBe(true);
+      expect(isBoard(board)).toBe(true);
     });
   });
 
@@ -47,7 +47,7 @@ describe("isBoardInfo", () => {
         has_wifi: false,
       },
     ].forEach((board) => {
-      expect(isBoardInfo(board)).toBe(false);
+      expect(isBoard(board)).toBe(false);
     });
   });
 
@@ -72,7 +72,7 @@ describe("isBoardInfo", () => {
         has_wifi: false,
       },
     ].forEach((board) => {
-      expect(isBoardInfo(board)).toBe(false);
+      expect(isBoard(board)).toBe(false);
     });
   });
 
@@ -93,7 +93,7 @@ describe("isBoardInfo", () => {
         foo: "bar",
       },
     ].forEach((board) => {
-      expect(isBoardInfo(board)).toBe(true);
+      expect(isBoard(board)).toBe(true);
     });
   });
 });
