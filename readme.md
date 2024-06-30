@@ -2,6 +2,8 @@
 
 I have used commander.js to make "jasarm", a json manipulation tool.
 
+I have also copied the odd snippet from the internet, and make no claim that I have thought up every line of code.
+
 It currently only has one command, 'combine', which combines json files as specified by the task.
 
 ### Installation
