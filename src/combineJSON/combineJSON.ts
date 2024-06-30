@@ -45,9 +45,9 @@ export function isBoardCollection(input: unknown): input is BoardCollection {
 export function combineJSON(path: string): void {
   // check if path is directory
   isDir(path);
+
   // check if dir contains .json files
   const jsonFilePaths = getJsonFiles(path);
-  // for each json:
 
   const combined: BoardCollectionValidated = {
     boards: [],
@@ -107,7 +107,6 @@ export function combineJSON(path: string): void {
   });
 
   // write out json
-
   try {
     const data = JSON.stringify(combined, null, "\t");
     const outputDir = `${path}/res`;
