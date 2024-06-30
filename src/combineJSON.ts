@@ -1,6 +1,11 @@
 import { BoardInfo } from "./types";
 import * as fs from "fs";
-import { isDir, getJsonFiles, isValidJsonFormat } from "./utils";
+import { isDir, getJsonFiles } from "./utils";
+
+export function isBoardInfo(input: unknown): input is BoardInfo {
+  // flesh this out
+  return true;
+}
 
 export function combineJSON(path: string): void {
   // check if path is directory
@@ -23,7 +28,7 @@ export function combineJSON(path: string): void {
     let boardInfo: BoardInfo;
     try {
       const obj = JSON.parse(fs.readFileSync(path, "utf-8"));
-      if (!isValidJsonFormat(obj)) {
+      if (!isBoardInfo(obj)) {
         console.warn(`${path} is not in the correct JSON format`);
         continue;
       }

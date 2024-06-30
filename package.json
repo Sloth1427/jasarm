@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "tsc-watch --onSuccess 'npm install -g'",
-    "build": "tsc",
+    "build": "tsc && npm install -g",
     "test": "test"
   },
   "author": "Jacob Reich",

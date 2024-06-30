@@ -1,6 +1,5 @@
 import * as fs from "fs";
 import { globSync } from "glob";
-import { BoardInfo } from "./types";
 
 export function isDir(fullpath: string): Boolean {
   try {
@@ -17,9 +16,4 @@ export function getJsonFiles(dir: string): string[] {
   }
 
   return jsonFilePaths;
-}
-
-export function isValidJsonFormat(input: unknown): input is BoardInfo {
-  // flesh this out
-  return false;
 }
