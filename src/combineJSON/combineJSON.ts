@@ -1,10 +1,27 @@
-import { BoardInfo } from "./types";
+import { BoardInfo } from "../types";
 import * as fs from "fs";
-import { isDir, getJsonFiles } from "./utils";
+import { isDir, getJsonFiles } from "../utils";
+
+function hasStringProp(prop: string, obj: object): boolean {
+  return prop in obj && typeof obj[prop] === "string";
+}
+
+function hasBooleanProp(prop: string, obj: object): boolean {
+  return prop in obj && typeof obj[prop] === "boolean";
+}
 
 export function isBoardInfo(input: unknown): input is BoardInfo {
-  // flesh this out
-  return true;
+  debugger;
+  if (typeof input !== "object") {
+    return false;
+  }
+
+  return (
+    hasStringProp("name", input) &&
+    hasStringProp("vendor", input) &&
+    hasStringProp("core", input) &&
+    hasBooleanProp("has_wifi", input)
+  );
 }
 
 export function combineJSON(path: string): void {

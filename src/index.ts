@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 import { Command } from "commander";
-import { combineJSON } from "./combineJSON";
+import { combineJSON } from "./combineJSON/combineJSON";
 
 const program = new Command();
 

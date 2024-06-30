@@ -9,12 +9,13 @@
   "scripts": {
     "dev": "tsc-watch --onSuccess 'npm install -g'",
     "build": "tsc && npm install -g",
-    "test": "test"
+    "test": "npm run build && jest"
   },
   "author": "Jacob Reich",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.14.8",
+    "jest": "^29.7.0",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5"
   },
