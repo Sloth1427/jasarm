@@ -4,7 +4,7 @@
   "description": "CLI to process JSON files",
   "main": "build/index.js",
   "bin": {
-    "combinejson": "./build/index.js"
+    "jasarm": "./build/index.js"
   },
   "scripts": {
     "dev": "tsc-watch --onSuccess 'npm install -g'",

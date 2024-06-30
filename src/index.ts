@@ -6,7 +6,7 @@ import { combineJSON } from "./combineJSON";
 const program = new Command();
 
 program
-  .name("combinejson")
+  .name("jasarm")
   .description(
     "Combines JSON files in a given format in to one JSON file, saving the result to a new JSON file"
   )

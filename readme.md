@@ -1,5 +1,9 @@
 ## Arm coding task CLI app
 
+I have used commander.js to make "jasarm", a json manipulation tool.
+
+It currently only has one command, 'combine', which combines json files as specified by the task.
+
 ### Installation
 
 Tested with Node 20.14.0.
@@ -8,7 +12,7 @@ run `npm install && npm run build`.
 
 ### How to use it
 
-run `combinejson combine <path-to-dir-containing-json-files>`
+run `jasarm combine <path-to-dir-containing-json-files>`
 
 The .json file containing the combined data will be saved in a directory called 'res', in output.json.
 

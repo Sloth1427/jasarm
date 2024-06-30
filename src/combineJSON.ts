@@ -10,7 +10,6 @@ export function isBoardInfo(input: unknown): input is BoardInfo {
 export function combineJSON(path: string): void {
   // check if path is directory
   isDir(path);
-  debugger;
   // check if dir contains .json files
   const jsonFilePaths = getJsonFiles(path);
   // for each json:
@@ -24,7 +23,6 @@ export function combineJSON(path: string): void {
   const vendors: string[] = [];
 
   for (const path of jsonFilePaths) {
-    console.log(path);
     let boardInfo: BoardInfo;
     try {
       const obj = JSON.parse(fs.readFileSync(path, "utf-8"));
