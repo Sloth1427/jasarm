@@ -15,7 +15,7 @@ program
   .description(
     "Combines json files of the format specified in the task in to a single json file, with metadata."
   )
-  .argument("<sring>", "src path")
+  .argument("<sring>", "Path the directory container the source json files.")
   .action((path, _options) => {
     combineJSON(path);
   });
