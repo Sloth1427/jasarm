@@ -1,12 +1,14 @@
 const { exec } = require("child_process");
-
+const { describe } = require("node:test");
 // TODO write more e2e tests
 
-test("it correctly gives the correct output on the example data", async () => {
-  const { stdout } = await cli(["combine", "e2e/test-data/example-boards"]);
-  expect(stdout).toEqual(
-    "Output written to e2e/test-data/example-boards/res\n"
-  );
+describe("e2e tests", () => {
+  test("it correctly gives the correct output on the example data", async () => {
+    const { stdout } = await cli(["combine", "e2e/test-data/example-boards"]);
+    expect(stdout).toEqual(
+      "Output written to e2e/test-data/example-boards/res\n"
+    );
+  });
 });
 
 function cli(args, cwd) {

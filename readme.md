@@ -16,6 +16,8 @@ run `npm install && npm run build`.
 
 run `jasarm combine <path-to-dir-containing-json-files>`
 
+For example `jasarm combine e2e/test-data/example-boards`
+
 The .json file containing the combined data will be saved in a directory called 'res', in output.json.
 
 ### Development
@@ -24,4 +26,8 @@ The .json file containing the combined data will be saved in a directory called 
 
 ### Tests
 
-Run the jest unit tests with `npm run test`.
+Run the jest tests with `npm run test`.
+
+### Troubleshooting
+
+After I cleaned the repo with `git clean -fdx` to test reinstalling everything, I found that I had to first uninstall the package globally with `npm uninstall -g` before I could then install it again, and then run jasarm without running in to "zsh: permission denied: jasarm" error.
