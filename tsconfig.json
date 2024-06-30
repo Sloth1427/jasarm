@@ -6,5 +6,5 @@
     "moduleResolution": "NodeNext",
     "module": "NodeNext"
   },
-  "exclude": ["test"]
+  "exclude": ["e2e"]
 }
