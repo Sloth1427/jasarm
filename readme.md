@@ -21,3 +21,5 @@ The .json file containing the combined data will be saved in a directory called 
 `npm run dev` to compile the source typeScript in watch mode, outputting to `build`, and re-installing the package globally to make the updated version available for testing.
 
 ### Tests
+
+Run the jest unit tests with `npm run test`.

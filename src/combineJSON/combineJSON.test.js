@@ -2,6 +2,8 @@
 const { describe } = require("node:test");
 const { isBoard } = require("../../build/combineJSON/combineJSON");
 
+// TODO add more tests, e.g. for isBoardCollection
+
 describe("isBoard", () => {
   test("return true for valid boards", () => {
     [
