@@ -8,7 +8,7 @@ It currently only has one command, 'combine', which combines json files as speci
 
 ### Installation
 
-Tested with Node 20.14.0.
+Tested with Node 20.14.0, on Mac OS 14.5 (M1).
 
 run `npm install && npm run build`.
 
@@ -31,3 +31,10 @@ Run the jest tests with `npm run test`.
 ### Troubleshooting
 
 After I cleaned the repo with `git clean -fdx` to test reinstalling everything, I found that I had to first uninstall the package globally with `npm uninstall -g` before I could then install it again, and then run jasarm without running in to "zsh: permission denied: jasarm" error.
+
+### TODO
+
+- Platform testing.
+- More options, e.g. if/where to write json output, if should log output to console, how to handle bad input.
+- More careful handling of bad inputs.
+- More unit and e2e tests.
